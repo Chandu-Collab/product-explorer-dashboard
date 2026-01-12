@@ -1,0 +1,27 @@
+# Local Netlify folder
+.netlify
+
+# Node.js dependencies
+node_modules/
+
+# Build output
+.next/
+
+# Logs
+logs/
+*.log
+
+# Dependency directories
+jspm_packages/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Miscellaneous
+.DS_Store
+.env
+.env.local
+.env.development
+.env.test
+.env.production
