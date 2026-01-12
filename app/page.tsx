@@ -1,5 +1,5 @@
-import { getProducts } from "../lib/api";
-import { Product } from "../types/product";
+import { getProducts } from '../lib/api';
+import { Product } from '../types/product';
 import ProductGrid from '../components/product/ProductGrid';
 import Loader from '../components/ui/Loader';
 

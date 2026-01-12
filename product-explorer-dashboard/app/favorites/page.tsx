@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { getFavorites } from '../../lib/favorites';
-import { Product } from '../../types/product';
+import { getFavorites } from '@/lib/favorites';
+import { Product } from '@/types/product';
 
 interface FavoritesPageProps {
   products: Product[];

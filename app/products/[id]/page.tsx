@@ -1,5 +1,5 @@
-import { getProductById } from '@/lib/api';
-import { Product } from '@/types/product';
+import { getProductById } from '../../../lib/api';
+import { Product } from '../../../types/product';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaArrowLeft } from 'react-icons/fa';
