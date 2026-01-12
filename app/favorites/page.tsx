@@ -4,19 +4,28 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { getFavorites } from '../../lib/favorites';
 import { Product } from '../../types/product';
+import { getProducts } from '../../lib/api';
 
-interface FavoritesPageProps {
-  products: Product[];
-}
-
-export default function FavoritesPage({ products }: FavoritesPageProps) {
+export default function FavoritesPage() {
+  const [products, setProducts] = useState<Product[]>([]);
   const [favoriteProducts, setFavoriteProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    const favoriteIds = getFavorites();
-    const filteredProducts = products.filter((product) => favoriteIds.includes(product.id));
-    setFavoriteProducts(filteredProducts);
-  }, [products]);
+    async function fetchData() {
+      try {
+        const allProducts = await getProducts();
+        setProducts(allProducts);
+
+        const favoriteIds = getFavorites();
+        const filteredProducts = allProducts.filter((product) => favoriteIds.includes(product.id));
+        setFavoriteProducts(filteredProducts);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    }
+
+    fetchData();
+  }, []);
 
   if (favoriteProducts.length === 0) {
     return <div className="p-4">No favorite products found.</div>;

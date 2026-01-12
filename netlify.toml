@@ -1,8 +1,8 @@
 # example netlify.toml
 [build]
-  command = "npm run build"
-  functions = "netlify/functions"
-  publish = ".next"
+  base = "product-explorer-dashboard/product-explorer-dashboard" # Correct base directory
+  command = "npm ci && npm run build" # Install dependencies and build the project
+  publish = ".next" # Publish the Next.js build output folder
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
